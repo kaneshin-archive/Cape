@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		79D148681AFE404A009274D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D148671AFE404A009274D2 /* main.m */; };
+		79D1486A1AFE404A009274D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79D148691AFE404A009274D2 /* Images.xcassets */; };
+		79D1486D1AFE404B009274D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79D1486B1AFE404B009274D2 /* MainMenu.xib */; };
+		79D1488F1AFE40FD009274D2 /* CCommandTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D1488E1AFE40FD009274D2 /* CCommandTests.m */; };
+		79D1489B1AFE6059009274D2 /* Routes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79D1489A1AFE6059009274D2 /* Routes.plist */; };
+		79D1489E1AFE6089009274D2 /* CAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D1489D1AFE6089009274D2 /* CAppDelegate.m */; };
+		79D148A41AFE61E5009274D2 /* CScreenCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D148A31AFE61E5009274D2 /* CScreenCapture.m */; };
+		79D148A51AFE61E5009274D2 /* CScreenCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D148A31AFE61E5009274D2 /* CScreenCapture.m */; };
+		79D148A81AFE6939009274D2 /* CCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D148A71AFE6939009274D2 /* CCommand.m */; };
+		79D148A91AFE6939009274D2 /* CCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D148A71AFE6939009274D2 /* CCommand.m */; };
+		79D148AC1AFE6A9E009274D2 /* CRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D148AB1AFE6A9E009274D2 /* CRequest.m */; };
+		79D148AD1AFE6A9E009274D2 /* CRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D148AB1AFE6A9E009274D2 /* CRequest.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		79D148901AFE40FD009274D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79D148551AFE4026009274D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79D1485E1AFE404A009274D2;
+			remoteInfo = Cape;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		79D1485F1AFE404A009274D2 /* Cape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cape.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79D148631AFE404A009274D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79D148671AFE404A009274D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		79D148691AFE404A009274D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		79D1486C1AFE404B009274D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		79D1488A1AFE40FD009274D2 /* Cape Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cape Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79D1488D1AFE40FD009274D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79D1488E1AFE40FD009274D2 /* CCommandTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCommandTests.m; sourceTree = "<group>"; };
+		79D1489A1AFE6059009274D2 /* Routes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Routes.plist; sourceTree = "<group>"; };
+		79D1489C1AFE6089009274D2 /* CAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAppDelegate.h; sourceTree = "<group>"; };
+		79D1489D1AFE6089009274D2 /* CAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAppDelegate.m; sourceTree = "<group>"; };
+		79D148A21AFE61E5009274D2 /* CScreenCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CScreenCapture.h; sourceTree = "<group>"; };
+		79D148A31AFE61E5009274D2 /* CScreenCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CScreenCapture.m; sourceTree = "<group>"; };
+		79D148A61AFE6939009274D2 /* CCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCommand.h; sourceTree = "<group>"; };
+		79D148A71AFE6939009274D2 /* CCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCommand.m; sourceTree = "<group>"; };
+		79D148AA1AFE6A9E009274D2 /* CRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRequest.h; sourceTree = "<group>"; };
+		79D148AB1AFE6A9E009274D2 /* CRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRequest.m; sourceTree = "<group>"; };
+		79D148AF1AFE7B95009274D2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		79D1485C1AFE404A009274D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79D148871AFE40FD009274D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		79D148541AFE4026009274D2 = {
+			isa = PBXGroup;
+			children = (
+				79D148611AFE404A009274D2 /* Cape */,
+				79D1488B1AFE40FD009274D2 /* Cape Tests */,
+				79D148601AFE404A009274D2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		79D148601AFE404A009274D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				79D1485F1AFE404A009274D2 /* Cape.app */,
+				79D1488A1AFE40FD009274D2 /* Cape Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		79D148611AFE404A009274D2 /* Cape */ = {
+			isa = PBXGroup;
+			children = (
+				79D148AF1AFE7B95009274D2 /* README.md */,
+				79D148991AFE5F38009274D2 /* Application */,
+				79D148981AFE5E86009274D2 /* Resource */,
+				79D148691AFE404A009274D2 /* Images.xcassets */,
+				79D1486B1AFE404B009274D2 /* MainMenu.xib */,
+				79D148621AFE404A009274D2 /* Supporting Files */,
+			);
+			path = Cape;
+			sourceTree = "<group>";
+		};
+		79D148621AFE404A009274D2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				79D148631AFE404A009274D2 /* Info.plist */,
+				79D148671AFE404A009274D2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		79D1488B1AFE40FD009274D2 /* Cape Tests */ = {
+			isa = PBXGroup;
+			children = (
+				79D1488E1AFE40FD009274D2 /* CCommandTests.m */,
+				79D1488C1AFE40FD009274D2 /* Supporting Files */,
+			);
+			path = "Cape Tests";
+			sourceTree = "<group>";
+		};
+		79D1488C1AFE40FD009274D2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				79D1488D1AFE40FD009274D2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		79D148981AFE5E86009274D2 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				79D1489A1AFE6059009274D2 /* Routes.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		79D148991AFE5F38009274D2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				79D1489C1AFE6089009274D2 /* CAppDelegate.h */,
+				79D1489D1AFE6089009274D2 /* CAppDelegate.m */,
+				79D148A11AFE612D009274D2 /* Utility */,
+				79D148A01AFE611A009274D2 /* Request */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		79D148A01AFE611A009274D2 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				79D148AA1AFE6A9E009274D2 /* CRequest.h */,
+				79D148AB1AFE6A9E009274D2 /* CRequest.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		79D148A11AFE612D009274D2 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				79D148A61AFE6939009274D2 /* CCommand.h */,
+				79D148A71AFE6939009274D2 /* CCommand.m */,
+				79D148A21AFE61E5009274D2 /* CScreenCapture.h */,
+				79D148A31AFE61E5009274D2 /* CScreenCapture.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		79D1485E1AFE404A009274D2 /* Cape */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79D1487A1AFE404B009274D2 /* Build configuration list for PBXNativeTarget "Cape" */;
+			buildPhases = (
+				79D1485B1AFE404A009274D2 /* Sources */,
+				79D1485C1AFE404A009274D2 /* Frameworks */,
+				79D1485D1AFE404A009274D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cape;
+			productName = Cape;
+			productReference = 79D1485F1AFE404A009274D2 /* Cape.app */;
+			productType = "com.apple.product-type.application";
+		};
+		79D148891AFE40FD009274D2 /* Cape Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79D148921AFE40FD009274D2 /* Build configuration list for PBXNativeTarget "Cape Tests" */;
+			buildPhases = (
+				79D148861AFE40FD009274D2 /* Sources */,
+				79D148871AFE40FD009274D2 /* Frameworks */,
+				79D148881AFE40FD009274D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79D148911AFE40FD009274D2 /* PBXTargetDependency */,
+			);
+			name = "Cape Tests";
+			productName = "Cape Tests";
+			productReference = 79D1488A1AFE40FD009274D2 /* Cape Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		79D148551AFE4026009274D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = C;
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Shintaro Kaneko";
+				TargetAttributes = {
+					79D1485E1AFE404A009274D2 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					79D148891AFE40FD009274D2 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+				};
+			};
+			buildConfigurationList = 79D148581AFE4026009274D2 /* Build configuration list for PBXProject "Cape" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 79D148541AFE4026009274D2;
+			productRefGroup = 79D148601AFE404A009274D2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				79D1485E1AFE404A009274D2 /* Cape */,
+				79D148891AFE40FD009274D2 /* Cape Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		79D1485D1AFE404A009274D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79D1489B1AFE6059009274D2 /* Routes.plist in Resources */,
+				79D1486A1AFE404A009274D2 /* Images.xcassets in Resources */,
+				79D1486D1AFE404B009274D2 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79D148881AFE40FD009274D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		79D1485B1AFE404A009274D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79D1489E1AFE6089009274D2 /* CAppDelegate.m in Sources */,
+				79D148A41AFE61E5009274D2 /* CScreenCapture.m in Sources */,
+				79D148681AFE404A009274D2 /* main.m in Sources */,
+				79D148AC1AFE6A9E009274D2 /* CRequest.m in Sources */,
+				79D148A81AFE6939009274D2 /* CCommand.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79D148861AFE40FD009274D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79D148A51AFE61E5009274D2 /* CScreenCapture.m in Sources */,
+				79D148AD1AFE6A9E009274D2 /* CRequest.m in Sources */,
+				79D1488F1AFE40FD009274D2 /* CCommandTests.m in Sources */,
+				79D148A91AFE6939009274D2 /* CCommand.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		79D148911AFE40FD009274D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79D1485E1AFE404A009274D2 /* Cape */;
+			targetProxy = 79D148901AFE40FD009274D2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		79D1486B1AFE404B009274D2 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79D1486C1AFE404B009274D2 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		79D148591AFE4026009274D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+			};
+			name = Debug;
+		};
+		79D1485A1AFE4026009274D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+			};
+			name = Release;
+		};
+		79D1487B1AFE404B009274D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Cape/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		79D1487C1AFE404B009274D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Cape/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		79D148931AFE40FD009274D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Cape Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		79D148941AFE40FD009274D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Cape Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		79D148581AFE4026009274D2 /* Build configuration list for PBXProject "Cape" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79D148591AFE4026009274D2 /* Debug */,
+				79D1485A1AFE4026009274D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79D1487A1AFE404B009274D2 /* Build configuration list for PBXNativeTarget "Cape" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79D1487B1AFE404B009274D2 /* Debug */,
+				79D1487C1AFE404B009274D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		79D148921AFE40FD009274D2 /* Build configuration list for PBXNativeTarget "Cape Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79D148931AFE40FD009274D2 /* Debug */,
+				79D148941AFE40FD009274D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 79D148551AFE4026009274D2 /* Project object */;
+}
