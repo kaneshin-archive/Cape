@@ -32,6 +32,7 @@
 @implementation CAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    [NSApp hide:nil];
     CScreenCapture *capture = [CScreenCapture launch];
     for (NSDictionary *route in [self routes]) {
         if (![route[@"enable"] boolValue]) {
