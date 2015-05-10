@@ -28,44 +28,33 @@
 
 @interface CAppDelegate ()
 @property (weak) IBOutlet NSWindow *window;
+@property (nonatomic, strong) CScreenCapture *lastCapture;
 @end
 
 @implementation CAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    dispatch_after(0.3, dispatch_get_main_queue(), ^{
+        [self newScreenCapture:nil];
+    });
 }
 
 - (void)applicationDidBecomeActive:(NSNotification *)notification {
-    [CScreenCapture launchWithCompletionHandler:^(CScreenCapture *capture) {
-        if (!capture.data) {
-            LogDebug(@"There is no data.");
-            return;
-        }
-        for (NSDictionary *route in [self routes]) {
-            if (![route[@"enable"] boolValue]) {
-                continue;
-            }
-            CRequest *req = [CRequest new];
-            [req requestWithMethod:route[@"method"]
-                         URLString:route[@"url"]
-                        parameters:route[@"parameters"]
-                  constructingBody:^(id<CMultipartFormData> formData) {
-                      [formData appendPartWithFileData:capture.data name:route[@"name"] filename:capture.filename];
-                  } success:^(NSData *data) {
-                      LogDebug(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-                  } failure:^(NSError *error) {
-                      LogDebug(@"%@", error.localizedDescription);
-                  }];
-        }
-    }];
+}
+
+- (NSURL *)URLOfRoutesFile {
+    return [[NSBundle mainBundle] URLForResource:@"Routes" withExtension:@"plist"];
+}
+
+- (NSURL *)URLOfCapeFile {
+    NSString *filename = @".cape";
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:filename];
+    return [[NSURL alloc] initFileURLWithPath:path];
 }
 
 - (NSArray *__nonnull)routes {
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Routes" withExtension:@"plist"];
-    NSMutableArray *routes = [NSMutableArray arrayWithContentsOfURL:url];
-    NSString *filename = @".cape";
-    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:filename];
-    NSURL *infoURL = [[NSURL alloc] initFileURLWithPath:path];
+    NSMutableArray *routes = [NSMutableArray arrayWithContentsOfURL:[self URLOfRoutesFile]];
+    NSURL *infoURL = [self URLOfCapeFile];
     if ([[NSFileManager defaultManager] fileExistsAtPath:infoURL.path]) {
         NSError *error = nil;
         NSString *string = [NSString stringWithContentsOfURL:infoURL encoding:NSUTF8StringEncoding error:&error];
@@ -83,6 +72,84 @@
         }
     }
     return routes;
+}
+
+- (IBAction)newScreenCapture:(id)sender {
+    __weak typeof(self) weakSelf = self;
+    [CScreenCapture launchWithCompletionHandler:^(CScreenCapture *capture) {
+        weakSelf.lastCapture = capture;
+        [weakSelf sendScreenCapture:capture];
+    }];
+}
+
+- (void)sendScreenCapture:(CScreenCapture *)capture {
+    if (!capture.data) {
+        LogDebug(@"There is no data.");
+        return;
+    }
+    for (NSDictionary *route in [self routes]) {
+        if (![route[@"enable"] boolValue]) {
+            continue;
+        }
+        CRequest *req = [CRequest new];
+        [req requestWithMethod:route[@"method"]
+                     URLString:route[@"url"]
+                    parameters:route[@"parameters"]
+              constructingBody:^(id<CMultipartFormData> formData) {
+                  [formData appendPartWithFileData:capture.data name:route[@"name"] filename:capture.filename];
+              } success:^(NSData *data) {
+                  LogDebug(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+              } failure:^(NSError *error) {
+                  LogDebug(@"%@", error.localizedDescription);
+              }];
+    }
+}
+
+- (IBAction)sendCaptureFile:(id)sender {
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    [panel setAllowedFileTypes:@[@"png", @"jpg", @"jpeg", @"tiff"]];
+    NSInteger result = [panel runModal];
+    switch (result) {
+        case NSOKButton: {
+            CScreenCapture *capture = [[CScreenCapture alloc] initWithURL:panel.URL];
+            [self sendScreenCapture:capture];
+            break;
+        }
+        case NSCancelButton:
+            break;
+        default:
+            break;
+    }
+}
+
+- (IBAction)saveLastTakenCapture:(id)sender {
+    if (!self.lastCapture) {
+        return;
+    }
+    NSSavePanel *panel = [NSSavePanel savePanel];
+    [panel setAllowedFileTypes:@[@"png"]];
+    panel.canCreateDirectories = YES;
+    panel.showsTagField = NO;
+    NSInteger result = [panel runModal];
+    switch (result) {
+        case NSOKButton:
+            [[NSFileManager defaultManager] copyItemAtURL:self.lastCapture.URL toURL:panel.URL error:nil];
+            break;
+        case NSCancelButton:
+            break;
+        default:
+            break;
+    }
+}
+
+- (IBAction)openRoutesFile:(id)sender {
+    NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
+    [workspace openURL:[self URLOfRoutesFile]];
+}
+
+- (IBAction)openCapeFile:(id)sender {
+    NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
+    [workspace openURL:[self URLOfCapeFile]];
 }
 
 @end

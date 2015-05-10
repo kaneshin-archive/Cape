@@ -25,7 +25,7 @@
 #import "CCommand.h"
 
 @interface CScreenCapture ()
-@property (nonatomic, strong, readwrite, nullable) NSURL *url;
+@property (nonatomic, strong, readwrite, nullable) NSURL *URL;
 @property (nonatomic, strong, readwrite, nullable) NSData *data;
 @property (nonatomic, strong, readwrite, nullable) NSString *filename;
 @end
@@ -35,7 +35,17 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.url = [self temporaryFileURL];
+        self.URL = [self temporaryFileURL];
+        self.data = nil;
+    }
+    return self;
+}
+
+- (nonnull instancetype)initWithURL:(NSURL *__nonnull)url {
+    self = [super init];
+    if (self) {
+        self.URL = url;
+        self.filename = url.lastPathComponent;
         self.data = nil;
     }
     return self;
@@ -53,12 +63,12 @@
 }
 
 - (int)launch {
-    [CCommand launch:@"screencapture" withArguments:@[@"-i", [NSString stringWithFormat:@"\"%@\"", self.url.path]]];
+    [CCommand launch:@"screencapture" withArguments:@[@"-i", [NSString stringWithFormat:@"\"%@\"", self.URL.path]]];
     return [CCommand lastTerminationStatus];
 }
 
 - (void)launchWithCompletionHandler:(void (^ __nullable)(CScreenCapture *__nonnull))completionBlock {
-    [CCommand launch:@"screencapture" withArguments:@[@"-i", [NSString stringWithFormat:@"\"%@\"", self.url.path]] completionHandler:^(NSTask *task) {
+    [CCommand launch:@"screencapture" withArguments:@[@"-i", [NSString stringWithFormat:@"\"%@\"", self.URL.path]] completionHandler:^(NSTask *task) {
         if (completionBlock) {
             completionBlock(self);
         }
@@ -72,8 +82,8 @@
 }
 
 - (NSData * __nullable)data {
-    if (_data == nil && self.url) {
-        _data = [NSData dataWithContentsOfURL:self.url];
+    if (_data == nil && self.URL) {
+        _data = [NSData dataWithContentsOfURL:self.URL];
     }
     return _data;
 }

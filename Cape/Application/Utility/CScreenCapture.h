@@ -23,9 +23,11 @@
 #import <Foundation/Foundation.h>
 
 @interface CScreenCapture : NSObject
-@property (nonatomic, strong, readonly, nullable) NSURL *url;
+@property (nonatomic, strong, readonly, nullable) NSURL *URL;
 @property (nonatomic, strong, readonly, nullable) NSData *data;
 @property (nonatomic, strong, readonly, nullable) NSString *filename;
+
+- (nonnull instancetype)initWithURL:(NSURL *__nonnull)URL;
 
 // Synchronous
 + (nonnull instancetype)launch;
