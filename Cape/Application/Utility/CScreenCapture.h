@@ -27,6 +27,11 @@
 @property (nonatomic, strong, readonly, nullable) NSData *data;
 @property (nonatomic, strong, readonly, nullable) NSString *filename;
 
+// Synchronous
 + (nonnull instancetype)launch;
 - (int)launch;
+
+// Asynchronous
++ (void)launchWithCompletionHandler:(void (^ __nullable)(CScreenCapture *__nonnull))completionBlock;
+- (void)launchWithCompletionHandler:(void (^ __nullable)(CScreenCapture *__nonnull))completionBlock;
 @end

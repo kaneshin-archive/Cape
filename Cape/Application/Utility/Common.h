@@ -1,4 +1,4 @@
-// CCommand.h
+// Common.h
 //
 // Copyright (c) 2015 Shintaro Kaneko
 //
@@ -20,11 +20,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#ifndef Cape_Common_h
+#define Cape_Common_h
 
-@interface CCommand : NSObject
-+ (int)lastTerminationStatus;
-+ (NSString *__nullable)which:(NSString *__nonnull)command;
-+ (int)launch:(NSString *__nonnull)command withArguments:(NSArray *__nullable)arguments;
-+ (void)launch:(NSString *__nonnull)command withArguments:(NSArray *__nullable)arguments completionHandler:(void (^ __nullable)(NSTask *__nonnull))completionBlock;
-@end
+#define LOG_FORMAT_NO_LOCATION(fmt, lvl, ...) NSLog((@"[%@] " fmt), lvl, ##__VA_ARGS__)
+#define LOG_FORMAT_WITH_LOCATION(fmt, lvl, ...) NSLog((@"%s[Line %d] [%@] " fmt), __PRETTY_FUNCTION__, __LINE__, lvl, ##__VA_ARGS__)
+
+#if defined(LOGGING_INCLUDE_CODE_LOCATION) && LOGGING_INCLUDE_CODE_LOCATION
+#   define LOG_FORMAT(fmt, lvl, ...) LOG_FORMAT_WITH_LOCATION(fmt, lvl, ##__VA_ARGS__)
+#else
+#   define LOG_FORMAT(fmt, lvl, ...) LOG_FORMAT_NO_LOCATION(fmt, lvl, ##__VA_ARGS__)
+#endif
+
+#if defined(DEBUG)
+#   define LogDebug(fmt, ...) LOG_FORMAT(fmt, @"DEBUG", ##__VA_ARGS__)
+#else
+#   define LogDebug(...)
+#endif
+
+#endif

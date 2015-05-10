@@ -22,6 +22,8 @@
 
 #import "CCommand.h"
 
+#import "Common.h"
+
 @implementation CCommand
 
 static int lastTerminationStatus = 0;
@@ -74,6 +76,28 @@ static int lastTerminationStatus = 0;
 
     lastTerminationStatus = [task terminationStatus];
     return lastTerminationStatus;
+}
+
++ (void)launch:(NSString *__nonnull)command withArguments:(NSArray *__nullable)arguments completionHandler:(void (^ __nullable)(NSTask *__nonnull))completionBlock {
+    NSTask *task = [[NSTask alloc] init];
+    [task setLaunchPath:@"/bin/bash"];
+    [task setCurrentDirectoryPath:[[NSBundle mainBundle].bundlePath stringByDeletingLastPathComponent]];
+
+    NSString *path = [[self class] which:command];
+    if (!path) {
+        path = command;
+    }
+    NSArray *run = [@[path] arrayByAddingObjectsFromArray:arguments];
+    NSArray *args = [NSArray arrayWithObjects:@"-c", [run componentsJoinedByString:@" "], nil];
+    LogDebug(@"%@", args);
+    [task setArguments:args];
+    [task launch];
+    [task setTerminationHandler:^(NSTask *task) {
+        lastTerminationStatus = [task terminationStatus];
+        if (completionBlock) {
+            completionBlock(task);
+        }
+    }];
 }
 
 @end

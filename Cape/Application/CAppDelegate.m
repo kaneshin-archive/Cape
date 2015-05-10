@@ -22,6 +22,7 @@
 
 #import "CAppDelegate.h"
 
+#import "Common.h"
 #import "CScreenCapture.h"
 #import "CRequest.h"
 
@@ -32,24 +33,31 @@
 @implementation CAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    [NSApp hide:nil];
-    CScreenCapture *capture = [CScreenCapture launch];
-    for (NSDictionary *route in [self routes]) {
-        if (![route[@"enable"] boolValue]) {
-            continue;
+}
+
+- (void)applicationDidBecomeActive:(NSNotification *)notification {
+    [CScreenCapture launchWithCompletionHandler:^(CScreenCapture *capture) {
+        if (!capture.data) {
+            LogDebug(@"There is no data.");
+            return;
         }
-        CRequest *req = [CRequest new];
-        [req requestWithMethod:route[@"method"]
-                     URLString:route[@"url"]
-                    parameters:route[@"parameters"]
-              constructingBody:^(id<CMultipartFormData> formData) {
-                  [formData appendPartWithFileData:capture.data name:route[@"name"] filename:capture.filename];
-              } success:^(NSData *data) {
-                  NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-              } failure:^(NSError *error) {
-                  NSLog(@"%@", error.localizedDescription);
-              }];
-    }
+        for (NSDictionary *route in [self routes]) {
+            if (![route[@"enable"] boolValue]) {
+                continue;
+            }
+            CRequest *req = [CRequest new];
+            [req requestWithMethod:route[@"method"]
+                         URLString:route[@"url"]
+                        parameters:route[@"parameters"]
+                  constructingBody:^(id<CMultipartFormData> formData) {
+                      [formData appendPartWithFileData:capture.data name:route[@"name"] filename:capture.filename];
+                  } success:^(NSData *data) {
+                      LogDebug(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                  } failure:^(NSError *error) {
+                      LogDebug(@"%@", error.localizedDescription);
+                  }];
+        }
+    }];
 }
 
 - (NSArray *__nonnull)routes {
@@ -59,11 +67,19 @@
     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:filename];
     NSURL *infoURL = [[NSURL alloc] initFileURLWithPath:path];
     if ([[NSFileManager defaultManager] fileExistsAtPath:infoURL.path]) {
-        NSString *string = [NSString stringWithContentsOfURL:infoURL encoding:NSUTF8StringEncoding error:nil];
-        NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
-        NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        if (json) {
-            [routes addObjectsFromArray:json];
+        NSError *error = nil;
+        NSString *string = [NSString stringWithContentsOfURL:infoURL encoding:NSUTF8StringEncoding error:&error];
+        if (error) {
+            LogDebug(@"%@", error.localizedDescription);
+        } else {
+            NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *error = nil;
+            NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+            if (error) {
+                LogDebug(@"%@", error.localizedDescription);
+            } else if (json) {
+                [routes addObjectsFromArray:json];
+            }
         }
     }
     return routes;

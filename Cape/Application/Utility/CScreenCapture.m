@@ -47,9 +47,22 @@
     return capture;
 }
 
++ (void)launchWithCompletionHandler:(void (^ __nullable)(CScreenCapture * __nonnull))completionBlock {
+    CScreenCapture *capture = [[CScreenCapture alloc] init];
+    [capture launchWithCompletionHandler:completionBlock];
+}
+
 - (int)launch {
     [CCommand launch:@"screencapture" withArguments:@[@"-i", [NSString stringWithFormat:@"\"%@\"", self.url.path]]];
     return [CCommand lastTerminationStatus];
+}
+
+- (void)launchWithCompletionHandler:(void (^ __nullable)(CScreenCapture *__nonnull))completionBlock {
+    [CCommand launch:@"screencapture" withArguments:@[@"-i", [NSString stringWithFormat:@"\"%@\"", self.url.path]] completionHandler:^(NSTask *task) {
+        if (completionBlock) {
+            completionBlock(self);
+        }
+    }];
 }
 
 - (NSURL *)temporaryFileURL {
