@@ -1,0 +1,22 @@
+[
+{
+    "enable": false,
+    "url": "https://slack.com/api/files.upload",
+    "method": "POST",
+    "name": "file",
+    "parameters": {
+        "token": "xoxp-xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxx-xxxxxx",
+        "channels": "yyyyyyyyy",
+        "title": "Screenshot.png"
+    }
+},
+{
+    "enable": false,
+    "url": "https://example.com/api/upload",
+    "method": "POST",
+    "name": "image",
+    "parameters": {
+        "token": "your access token"
+    }
+}
+]

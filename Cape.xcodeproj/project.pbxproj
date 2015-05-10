@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7903A1941AFF522300B177BA /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 7903A1931AFF522300B177BA /* sample.json */; };
 		79D148681AFE404A009274D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D148671AFE404A009274D2 /* main.m */; };
 		79D1486A1AFE404A009274D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79D148691AFE404A009274D2 /* Images.xcassets */; };
 		79D1486D1AFE404B009274D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79D1486B1AFE404B009274D2 /* MainMenu.xib */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7903A1931AFF522300B177BA /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		79A54F5C1AFF2B3B00A4ACE3 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		79D1485F1AFE404A009274D2 /* Cape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D148631AFE404A009274D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				79D1489A1AFE6059009274D2 /* Routes.plist */,
+				7903A1931AFF522300B177BA /* sample.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79D1489B1AFE6059009274D2 /* Routes.plist in Resources */,
+				7903A1941AFF522300B177BA /* sample.json in Resources */,
 				79D1486A1AFE404A009274D2 /* Images.xcassets in Resources */,
 				79D1486D1AFE404B009274D2 /* MainMenu.xib in Resources */,
 			);

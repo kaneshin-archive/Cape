@@ -148,6 +148,12 @@
 }
 
 - (IBAction)openCapeFile:(id)sender {
+    NSURL *url = [self URLOfCapeFile];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:url.path]) {
+        NSURL *sample = [[NSBundle mainBundle] URLForResource:@"sample" withExtension:@"json"];
+        NSData *contents = [NSData dataWithContentsOfURL:sample];
+        [[NSFileManager defaultManager] createFileAtPath:url.path contents:contents attributes:nil];
+    }
     NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
     [workspace openURL:[self URLOfCapeFile]];
 }
